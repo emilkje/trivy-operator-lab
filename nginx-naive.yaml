@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: naive
+spec:
+  selector:
+    matchLabels:
+      app: naive
+  template:
+    metadata:
+      labels:
+        app: naive
+    spec:
+      containers:
+      - name: naive
+        image: nginx:1.20
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
